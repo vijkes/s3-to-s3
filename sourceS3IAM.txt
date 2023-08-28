@@ -1,0 +1,29 @@
+{
+	"Version": "2012-10-17",
+	"Id": "Policy1611277539797",
+	"Statement": [
+		{
+			"Sid": "Stmt1611277535086",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::888545695904:user/admin.access"
+			},
+			"Action": "s3:PutObject",
+			"Resource": "arn:aws:s3:::wtr-images/*",
+			"Condition": {
+				"StringEquals": {
+					"s3:x-amz-acl": "bucket-owner-full-control"
+				}
+			}
+		},
+		{
+			"Sid": "Stmt1611277877767",
+			"Effect": "Allow",
+			"Principal": {
+				"AWS": "arn:aws:iam::888545695904:user/admin.access"
+			},
+			"Action": "s3:ListBucket",
+			"Resource": "arn:aws:s3:::wtr-images"
+		}
+	]
+}
